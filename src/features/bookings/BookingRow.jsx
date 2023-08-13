@@ -104,18 +104,17 @@ function BookingRow({
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
 
-      <Modal>
-        <Menus.Menu>
-          <Menus.Toggle id={bookingId} />
-          <Menus.List id={bookingId} />
+      <Menus.Menu>
+        <Menus.Toggle id={bookingId} />
+        <Menus.List id={bookingId}>
           <Menus.Button
             icon={<HiEye />}
             onClick={() => navigate(`/bookings/${bookingId}`)}
           >
             See details
           </Menus.Button>
-        </Menus.Menu>
-      </Modal>
+        </Menus.List>
+      </Menus.Menu>
     </Table.Row>
   );
 }
