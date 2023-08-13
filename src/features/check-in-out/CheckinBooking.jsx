@@ -16,7 +16,7 @@ import { useMoveBack } from "../../hooks/useMoveBack";
 // import { useCheckin } from "./useCheckin";
 
 import styled from "styled-components";
-import { useCheckin } from "./useCheckin";
+import { useChecking } from "./useCheckin";
 // import { box } from "../../styles/GlobalStyles";
 import { useSettings } from "../../features/settings/useSettings";
 
@@ -33,7 +33,7 @@ function CheckinBooking() {
   const [addBreakfast, setAddBreakfast] = useState(false);
 
   const { booking, isLoading } = useBooking();
-  const { checkin, isCheckingIn } = useCheckin();
+  const { checkin, isCheckingIn } = useChecking();
   const { isLoading: isLoadingSettings, settings } = useSettings();
   const moveBack = useMoveBack();
 
@@ -67,7 +67,7 @@ function CheckinBooking() {
         },
       });
     } else {
-      checkin({ booking, breakfast: {} });
+      checkin({ bookingId, breakfast: {} });
     }
   }
 
