@@ -28,6 +28,7 @@ const HeadingGroup = styled.div`
 function BookingDetail() {
   const { booking, isLoading } = useBooking();
   const { checkout, isCheckingOut } = useCheckout();
+  const { deleteBooking, isDeleting } = useDeleteBooking();
 
   // const { mutate: deleteBooking, isLoading: isDeleting } = useDeleteBooking();
   // const { mutate: checkout, isLoading: isCheckingOut } = useCheckout();
@@ -74,6 +75,23 @@ function BookingDetail() {
             Check out
           </Button>
         )}
+
+        <Modal>
+          <Modal.Open opens="delete">
+            <Button variation="danger">Delete booking</Button>
+          </Modal.Open>
+          <Modal.Window name="delete">
+            <ConfirmDelete
+              resourceName="booking"
+              disabled={isDeleting}
+              onConfirm={() =>
+                deleteBooking(bookingId, {
+                  onSettled: () => navigate(-1),
+                })
+              }
+            />
+          </Modal.Window>
+        </Modal>
 
         <Button variation="secondary" onClick={moveBack}>
           Back
