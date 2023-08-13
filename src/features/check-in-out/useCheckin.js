@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 export function useCheckin() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-
   const { mutate: checkin, isLoading: isCheckingIn } = useMutation({
     mutationFn: ({ bookingId, breakfast }) =>
       updateBooking(bookingId, {
@@ -21,8 +20,7 @@ export function useCheckin() {
       navigate("/");
     },
 
-    onError: () => toast.error("There was an error while checking in"),
+    onError: () => toast.error("There was an error while cheking in"),
   });
-
   return { checkin, isCheckingIn };
 }

@@ -31,7 +31,7 @@ function BookingDetail() {
   // const { mutate: checkout, isLoading: isCheckingOut } = useCheckout();
 
   const moveBack = useMoveBack();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   if (isLoading) return <Spinner />;
   if (!booking) return <Empty resource="booking" />;
@@ -57,28 +57,11 @@ function BookingDetail() {
 
       <BookingDataBox booking={booking} />
 
-      {/* <ButtonGroup>
-        {status === "unconfirmed" && <Button>Check in</Button>}
-
-        {status === "checked-in" && <Button>Check out</Button>}
-
-        <Modal>
-          <Modal.Toggle opens="delete">
-            <Button variation="danger">Delete booking</Button>
-          </Modal.Toggle>
-          <Modal.Window name="delete">
-            <ConfirmDelete
-              resource="booking"
-              // These options will be passed wherever the function gets called, and they determine what happens next
-              // onConfirm={(options) => deleteBooking(bookingId, options)}
-              // disabled={isDeleting}
-            />
-          </Modal.Window>
-        </Modal>
-
-        
-      </ButtonGroup> */}
       <ButtonGroup>
+        <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
+          Check in
+        </Button>
+
         <Button variation="secondary" onClick={moveBack}>
           Back
         </Button>
