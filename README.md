@@ -1,6 +1,6 @@
-# Hotel Management App Readme
+# The wild Oasis App Readme
 
-The Hotel Management App is a comprehensive solution designed to streamline various tasks for hotel employees.It is made using ReactQuery and Supabase. This README document provides an overview of the app's features, functionalities, and usage instructions.
+This is Hotel Management App is a comprehensive solution designed to streamline various tasks for hotel employees.It is made using ReactQuery and Supabase. This README document provides an overview of the app's features, functionalities, and usage instructions.
 
 ## Table of Contents
 
